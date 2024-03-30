@@ -1,0 +1,56 @@
+[
+  {    
+    "nome": "João",
+    "sexo": "Masculino",
+    "dataNascimento": "1985-07-15",
+    "estadoCivil": "Solteiro",
+    "enderecos": [
+        {"cep": "12345-678", "endereco": "Rua A", "numero": "100", "complemento": "Apto 101", "bairro": "Centro", "estado": "SP", "cidade": "São Paulo"}
+    ]
+  },
+  {    
+    "nome": "Maria",
+    "sexo": "Feminino",
+    "dataNascimento": "1990-03-22",
+    "estadoCivil": "Casada",
+    "enderecos": [
+        {"cep": "54321-876", "endereco": "Avenida B", "numero": "200", "complemento": "Casa", "bairro": "Praia", "estado": "RJ", "cidade": "Rio de Janeiro"}
+    ]
+  },
+  {    
+    "nome": "Pedro",
+    "sexo": "Masculino",
+    "dataNascimento": "1988-11-10",
+    "estadoCivil": "Divorciado",
+    "enderecos": [
+        {"cep": "98765-432", "endereco": "Travessa C", "numero": "50", "complemento": "Sala 2", "bairro": "Centro", "estado": "MG", "cidade": "Belo Horizonte"}
+    ]
+  },
+  {    
+    "nome": "Ana",
+    "sexo": "Feminino",
+    "dataNascimento": "1982-05-30",
+    "estadoCivil": "Viúva",
+    "enderecos": [
+        {"cep": "13579-246", "endereco": "Praça D", "numero": "300", "complemento": "Loja 5", "bairro": "Comercial", "estado": "RS", "cidade": "Porto Alegre"}
+    ]
+  },
+  {    
+    "nome": "Carlos",
+    "sexo": "Masculino",
+    "dataNascimento": "1976-09-05",
+    "estadoCivil": "Solteiro",
+    "enderecos": [
+        {"cep": "24680-135", "endereco": "Alameda E", "numero": "150", "complemento": "Fundos", "bairro": "Industrial", "estado": "PR", "cidade": "Curitiba"}
+    ]
+  },
+  {    
+    "nome": "Juliana",
+    "sexo": "Feminino",
+    "dataNascimento": "1995-02-18",
+    "estadoCivil": "Solteira",
+    "enderecos": [
+        {"cep": "67890-321", "endereco": "Rodovia F", "numero": "400", "complemento": "Bloco A", "bairro": "Residencial", "estado": "SC", "cidade": "Florianópolis"}
+    ]
+  }
+]
