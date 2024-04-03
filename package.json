@@ -27,6 +27,7 @@
     "@nestjs/mongoose": "^10.0.4",
     "@nestjs/platform-express": "^10.3.7",
     "@nestjs/typeorm": "^10.0.2",
+    "axios": "^1.6.8",
     "bcryptjs": "^2.4.3",
     "mongo": "^0.1.0",
     "mongoose": "^8.2.4",

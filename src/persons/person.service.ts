@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 // import { InjectRepository } from '@nestjs/typeorm';
 // import { Repository } from 'typeorm';
 import { Person, PersonDocument } from './person.entity';
-import { PersonRepository } from './person.repository';
+import { PersonRepository, QueryOptions } from './person.repository';
 
 @Injectable()
 export class PersonService {
@@ -15,6 +15,10 @@ export class PersonService {
     return this.personRepository.findAll();
   }
 
+  async find(options: QueryOptions ): Promise<PersonDocument[]> {
+    return await this.personRepository.find(options);
+  }
+  
   findOne(id: string): Promise<Person> {
     return this.personRepository.findOne(id);
   }

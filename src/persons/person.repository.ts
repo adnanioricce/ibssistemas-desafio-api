@@ -3,12 +3,20 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Person,PersonDocument } from './person.entity';
 
+export interface QueryOptions {  
+  page: number
+  limit: number
+}
 @Injectable()
 export class PersonRepository {
   constructor(@InjectModel(Person.name) private personModel: Model<PersonDocument>) {}
 
   async findAll(): Promise<PersonDocument[]> {
     return this.personModel.find().exec();
+  }
+
+  async find(options:QueryOptions): Promise<PersonDocument[]> {
+    return this.personModel.find().skip((options.page - 1) * options.limit).limit(options.limit).exec();
   }
 
   async findOne(id: string): Promise<Person> {
