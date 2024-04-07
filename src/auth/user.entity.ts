@@ -13,7 +13,11 @@ export class User {
 
   @Prop()
   salt: string
+
+  @Prop()
+  role: string
 }
+
 export type UserDocument = User & Document;
 
 export const UserSchema = SchemaFactory.createForClass(User)

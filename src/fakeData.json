@@ -1,9 +1,9 @@
 [
   {    
     "nome": "João",
-    "sexo": "Masculino",
+    "sexo": 2,
     "dataNascimento": "1985-07-15",
-    "estadoCivil": "Solteiro",
+    "estadoCivil": 1,
     "enderecos": [
         {"cep": "12345-678", "endereco": "Rua A", "numero": "100", "complemento": "Apto 101", "bairro": "Centro", "estado": "SP", "cidade": "São Paulo"}
     ]

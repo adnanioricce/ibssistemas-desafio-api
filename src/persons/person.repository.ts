@@ -16,7 +16,10 @@ export class PersonRepository {
   }
 
   async find(options:QueryOptions): Promise<PersonDocument[]> {
-    return this.personModel.find().skip((options.page - 1) * options.limit).limit(options.limit).exec();
+    return this.personModel.find()
+      .skip((options.page - 1) * options.limit)
+      .limit(options.limit)
+      .exec();
   }
 
   async findOne(id: string): Promise<Person> {

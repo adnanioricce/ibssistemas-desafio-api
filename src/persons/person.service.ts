@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 // import { InjectRepository } from '@nestjs/typeorm';
 // import { Repository } from 'typeorm';
-import { Person, PersonDocument } from './person.entity';
+import { Person, PersonDocument, PersonDto } from './person.entity';
 import { PersonRepository, QueryOptions } from './person.repository';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class PersonService {
     private readonly personRepository: PersonRepository,
   ) {}
 
-  findAll(): Promise<PersonDocument[]> {
+  async findAll(): Promise<PersonDto[]> {
     return this.personRepository.findAll();
   }
 

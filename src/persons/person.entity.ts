@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, ObjectId } from 'mongoose';
 import axios from "axios";
+import { ResultMonad } from 'src/tools/result.monad';
 export enum EstadoCivil {
   
   solteiro = 1,
@@ -9,8 +10,9 @@ export enum EstadoCivil {
   viuvo = 4,
 }
 export enum Sexo {
-  Homem
-  ,Mulher
+  Homem = 1
+  ,Mulher = 2
+  ,Outro = 3
 }
 export interface ValidationError {
   field: string;
@@ -52,7 +54,7 @@ export class CEP {
   
     // Check if the CEP has the correct length
     if (sanitizedCEP.length !== 8) {
-      errors.push({ field: 'cep', message: 'CEP obrigatoriamente tem 8 digitos.' });
+      errors.push({ field: 'cep', message: 'CEP obrigatóriamente tem 8 digitos.' });
     }
   
     return errors;
@@ -203,10 +205,23 @@ export class Person {
     person.enderecos
       .flatMap((address) => Address.validate(address))
       .forEach(addr => errors.push(addr))
-    
-    return errors;
+    return errors
   }
-  
+  static fromDto(dto:PersonDto): ResultMonad<Person,ValidationError[]> {
+    const person = {
+      nome: dto.nome
+      ,dataNascimento: dto.dataNascimento
+      ,estadoCivil: dto.estadoCivil
+      ,sexo: dto.sexo
+      ,enderecos: dto.enderecos.map(endereco =>  Address.fromDto(endereco))
+    };
+    
+    const errors =  Person.validate(person)        
+    if(errors.length === 0){
+      return ResultMonad.success(person)
+    }
+    return ResultMonad.failure(errors);
+  }
 }
 
 export interface PersonDto {  
