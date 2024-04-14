@@ -4,7 +4,8 @@ const { MongoClient } = require('mongodb');
 const fs = require('fs')
 const bcrypt = require('bcryptjs')
 // Connection URI
-const uri = 'mongodb://root:passwd@localhost:8082/';
+// console.log(process.env.DATABASE_URI)
+const uri = 'mongodb://root:passwd@localhost:9082/';
 
 // Database Name
 const dbName = 'persons';
@@ -46,3 +47,5 @@ async function seedDatabase() {
 
 // Call the function to seed the database
 seedDatabase();
+// const passwords = ['password','passwd','asdf1234'].map(passwd => ({salt:bcrypt.genSaltSync(),passwordHash:bcrypt.hashSync(passwd)}))
+// console.log('passwords:',passwords)

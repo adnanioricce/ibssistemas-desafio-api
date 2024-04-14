@@ -8,7 +8,7 @@ type Fail<E> = {
     error: E;
 };
 
-type Result<T, E> = 
+export type Result<T, E> = 
 | Ok<T> 
 | Fail<E>;
 

@@ -157,7 +157,9 @@ export class Address {
 
 @Schema()
 export class Person {    
+  @Prop()
 
+  id: string 
   @Prop()
   nome: string;
 
@@ -208,8 +210,9 @@ export class Person {
     return errors
   }
   static fromDto(dto:PersonDto): ResultMonad<Person,ValidationError[]> {
-    const person = {
-      nome: dto.nome
+    const person:Person = {
+      id: dto.id
+      ,nome: dto.nome
       ,dataNascimento: dto.dataNascimento
       ,estadoCivil: dto.estadoCivil
       ,sexo: dto.sexo
@@ -225,6 +228,8 @@ export class Person {
 }
 
 export interface PersonDto {  
+  id: string 
+  
   nome: string;
 
   sexo: Sexo;

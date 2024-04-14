@@ -11,7 +11,9 @@ export class UserService {
   async findByUsername(username: string): Promise<User | null> {
     return this.userModel.findOne({ username }).exec();
   }
-
+  async findById(id:string) : Promise<User | null> {
+    return this.userModel.findById(id).exec()
+  }
   async create(userDto: RegisterDto): Promise<User> {
     const hashedPassword = await Tooling.hashPassword(userDto.password)        
     const createdUser = new this.userModel({

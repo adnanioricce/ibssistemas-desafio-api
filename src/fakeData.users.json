@@ -2,23 +2,23 @@
     {
         "id": "1",
         "username": "admin",
-        "passwordHash": "$2a$10$i77QORl41Re3XR.9G/hHAOjjcuRwoLhZYB4Vpqx/8M2vRsU92Q7/K",
-        "salt": "$2a$10$i77QORl41Re3XR.9G/hHAO",
+        "passwordHash": "$2a$10$zTpaNzReNDV54jK99gE7XOGRlBoRD9TPr/0FmG8lLI7/y9aeju9Se",
+        "salt": "$2a$10$4c6ybGjdkWEYpI6.MNV0He",
         "role": "admin"
     },
     {
         "id": "2",
         "username": "operator",
-        "passwordHash": "$2a$10$TkbNW.xqfOOZ1xxsEP4x9ucLytJrqoSU6VbNMaMCSkuxz92wwGj1.",
-        "salt": "$2a$10$TkbNW.xqfOOZ1xxsEP4x9u",
+        "passwordHash": "$2a$10$ORjzbOuuHc3ZY5ZLEc27SugVlNNpw9Ha6kW5SoiPYx.zG2AfVuhl.",
+        "salt": "$2a$10$dhaZgMvx8KTzZU4z9nmoFu",
         "role": "operator"
     },
     
     {
         "id": "2",
         "username": "guest",
-        "passwordHash": "$2a$10$TkbNW.xqfOOZ1xxsEP4x9ucLytJrqoSU6VbNMaMCSkuxz92wwGj1.",
-        "salt": "$2a$10$TkbNW.xqfOOZ1xxsEP4x9u",
+        "passwordHash": "$2a$10$zmN1JCa1P.sKDGGoxbclW.dsY1aE56a1ssK.8bxCsZ.bSRY1dx/z.",
+        "salt": "$2a$10$iccqhN6HbPDlPquqKcRBn.",
         "role": "guest"
     }
 ]

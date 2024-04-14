@@ -1,4 +1,5 @@
 import * as bcrypt from 'bcryptjs';
+
 export namespace Tooling {
     // type HashPassword = (password: string) => Promise<string>
     // type VerifyPassword = (password: string,hash: string) => Promise<boolean>

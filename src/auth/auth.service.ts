@@ -6,7 +6,16 @@ import { User } from './user.entity';
 import { UserService } from './user.service';
 import { LoginDto, RegisterDto } from './auth.dto';
 import { Tooling } from 'src/tools/passwordHasher.helper';
-
+import { AppErrors } from 'src/errors';
+import { ResultMonad } from 'src/tools/result.monad';
+type JwtResult = {
+  errors: Error[]
+  access_token: string
+}
+export type JwtPayload = {
+  username: string
+  sub: string
+}
 @Injectable()
 export class AuthService {
   constructor(
@@ -16,20 +25,32 @@ export class AuthService {
   
   async validateUser(username: string, password: string): Promise<User | null> {
     const user = await this.userService.findByUsername(username);
-    
-    if (user && await Tooling.verifyPassword(password,user.passwordHash)) {
+    console.log('findByUsername -> user:',user)
+    const isPasswordValid = await Tooling.verifyPassword(password,user.passwordHash)
+    console.log('verifyPassword:',isPasswordValid)
+    if (user && isPasswordValid) {
       return user;
     }
     return null;
   }
-
-  async login(loginDto: LoginDto) {
-    const user = await this.validateUser(loginDto.username, loginDto.password);
+  async validateUserByPayload(payload:JwtPayload): Promise<User> {
+    const user = await this.userService.findByUsername(payload.username)
     if (!user) {
-      throw new UnauthorizedException('Invalid credentials');
+      throw new UnauthorizedException()
     }
-    const payload = { username: user.username, sub: user.id };    
+    return user
+  }
+  async login(loginDto: LoginDto) : Promise<JwtResult> {
+    const user = await this.validateUser(loginDto.username, loginDto.password)
+    if (!user) {      
+      return {
+        errors: [AppErrors.InvalidCredentials]
+        ,access_token: ''
+      }
+    }
+    const payload = { username: user.username, sub: user.id }
     return {
+      errors: [],
       access_token: this.jwtService.sign(payload,{
         secret: process.env.JWT_SECRET
       }),
